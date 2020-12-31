@@ -11,7 +11,7 @@ db.sequelize.sync({ force: true }).then(() => {
 });
 
 var corsOptions = {
-  origin: "http://localhost:7891"
+  origin: "http://localhost:8080"
 };
 
 app.use(cors(corsOptions));
@@ -26,6 +26,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ message: "Hi Michelle!" });
 });
+
+require("./app/routes/drink.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

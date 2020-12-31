@@ -3,7 +3,7 @@ const Drink = db.drinks;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
-  if (!req.body.title) {
+  if (!req.body.name) {
     res.status(400).send({
       message: "Content cannot be empty"
     });
